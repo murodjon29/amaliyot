@@ -14,8 +14,7 @@ export class CreateProductDto {
   @MinLength(2, { message: "Mahsulot nomi kamida 2 ta belgidan iborat bo‘lishi kerak" })
   name: string;
 
-  @IsNumber({}, { message: "Narx raqam bo‘lishi kerak" })
-  @IsPositive({ message: "Narx musbat son bo‘lishi kerak" })
+  
   price: number;
   
   @IsOptional()
@@ -23,8 +22,6 @@ export class CreateProductDto {
   description?: string;
   
   @IsOptional()
-  @IsNumber({}, { message: "Miqdor raqam bo‘lishi kerak" })
-  @IsPositive({ message: "Miqdor musbat son bo‘lishi kerak" })
   quantity: number = 1;
 
   // 📸 Images (MongoId lar bo‘lsa)
