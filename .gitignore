@@ -3,6 +3,7 @@
 /node_modules
 /build
 
+amaliyot.pem
 # Logs
 logs
 *.log
