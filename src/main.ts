@@ -4,7 +4,9 @@ import { join } from 'path';
 import * as express from 'express';
 import * as cors from 'cors';
 import { ValidationPipe } from '@nestjs/common';
+import { config } from 'dotenv';
 
+config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cors());
@@ -18,8 +20,8 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(process.env.PORT || 5000, () => {
-    console.log(`Server started on port ${process.env.PORT || 5000}`);
+  await app.listen(Number(process.env.PORT), () => {
+    console.log(`Server started on port ${process.env.PORT}`);
   });
 }
 bootstrap();

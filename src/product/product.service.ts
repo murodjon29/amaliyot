@@ -12,7 +12,7 @@ export class ProductService {
     @InjectModel(Image.name) private imageModel: Model<Image>,
   ) {}
 
-  private baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+  private baseUrl = process.env.BASE_URL || 'http://13.222.190.158:3000';
 
   async create(dto: CreateProductDto, file?: Express.Multer.File): Promise<Product> {
     let imageDoc: Image | null = null;
