@@ -6,6 +6,7 @@ import {
   Delete,
   Param,
   Body,
+  Patch,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './schema/user.schema';
@@ -33,7 +34,7 @@ export class UserController {
   }
 
   // ✏️ Update user
-  @Put(':id')
+  @Patch(':id')
   async update(
     @Param('id') id: string,
     @Body() dto: Partial<User>,
