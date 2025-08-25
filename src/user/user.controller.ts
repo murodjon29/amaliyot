@@ -17,19 +17,19 @@ export class UserController {
 
   // ➕ Create user
   @Post()
-  async create(@Body() dto: Partial<User>): Promise<User> {
+  async create(@Body() dto: Partial<User>) {
     return this.userService.create(dto);
   }
 
   // 📋 Get all users
   @Get()
-  async findAll(): Promise<User[]> {
+  async findAll() {
     return this.userService.findAll();
   }
 
   // 🔍 Get one user
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<User> {
+  async findOne(@Param('id') id: string){
     return this.userService.findOne(id);
   }
 
@@ -38,13 +38,13 @@ export class UserController {
   async update(
     @Param('id') id: string,
     @Body() dto: Partial<User>,
-  ): Promise<User> {
+  ) {
     return this.userService.update(id, dto);
   }
 
   // ❌ Delete user
   @Delete(':id')
-  async remove(@Param('id') id: string): Promise<{ message: string }> {
+  async remove(@Param('id') id: string) {
     return this.userService.remove(id);
   }
 }

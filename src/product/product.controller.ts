@@ -35,22 +35,22 @@ export class ProductController {
       }),
     }),
   )
-  async create(
+  async create (
     @Body() dto: CreateProductDto,
     @UploadedFile() file?: Express.Multer.File,
-  ): Promise<Product> {
+  ): Promise<{ statusCode: number; message: string; data: Product | null }> {
     return this.productService.create(dto, file);
   }
 
   // ✅ Barcha productlarni olish
   @Get()
-  async findAll(): Promise<Product[]> {
+  async findAll(): Promise<{ statusCode: number; message: string; data: Product[] | null }> {
     return this.productService.findAll();
   }
 
   // ✅ Bitta product olish
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Product> {
+  async findOne(@Param('id') id: string): Promise<{ statusCode: number; message: string; data: Product | null }> {
     return this.productService.findOne(id);
   }
 
@@ -71,13 +71,13 @@ export class ProductController {
     @Param('id') id: string,
     @Body() dto: Partial<CreateProductDto>,
     @UploadedFile() file?: Express.Multer.File,
-  ): Promise<Product> {
+  ): Promise<{ statusCode: number; message: string; data: Product | null }> {
     return this.productService.update(id, dto, file);
   }
 
   // ✅ O‘chirish
   @Delete(':id')
-  async remove(@Param('id') id: string): Promise<{ message: string }> {
+  async remove(@Param('id') id: string): Promise<{  statusCode: number; message: string }> {
     return this.productService.remove(id);
   }
 }
